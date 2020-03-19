@@ -892,15 +892,15 @@ def hurl_attack(url, n, c, **options):
             'rps': options.get('rps'),
             'basic_auth': options.get('basic_auth'),
             'seconds': options.get('seconds'),
-            'rate' : options.get('rate'),
-            'long_output' : options.get('long_output'),
-            'responses_per' : options.get('responses_per'),
-            'verb' : options.get('verb'),
-            'threads' : options.get('threads'),
-            'fetches' : options.get('fetches'),
-            'timeout' : options.get('timeout'),
-            'send_buffer' : options.get('send_buffer'),
-            'recv_buffer' : options.get('recv_buffer')
+            'rate': options.get('rate'),
+            'long_output': options.get('long_output'),
+            'responses_per': options.get('responses_per'),
+            'verb': options.get('verb'),
+            'threads': options.get('threads'),
+            'fetches': options.get('fetches'),
+            'timeout': options.get('timeout'),
+            'send_buffer': options.get('send_buffer'),
+            'recv_buffer': options.get('recv_buffer')
         })
 
     print('Stinging URL so it will be cached for the attack.')
@@ -1000,7 +1000,7 @@ def _hurl_attack(params):
                     options += ' -H "%s"' % h.strip()
 
         if params['contenttype'] is not '':
-            options += ' -H \"Content-Type : %s\"' % params['contenttype']
+            options += ' -H \"Content-Type: %s\"' % params['contenttype']
 
         stdin, stdout, stderr = client.exec_command('mktemp')
         # paramiko's read() returns bytes which need to be converted back to a str
@@ -1021,7 +1021,7 @@ def _hurl_attack(params):
             options += ' -H \"Cookie: %s;\"' % params['cookies']
 
         if params['basic_auth'] is not '':
-            options += ' -H \"Authorization : Basic %s\"' % params['basic_auth']
+            options += ' -H \"Authorization: Basic %s\"' % params['basic_auth']
 
         if params['seconds']:
             options += ' -l %d' % params['seconds']
